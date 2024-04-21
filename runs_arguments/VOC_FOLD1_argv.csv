@@ -1,0 +1,48 @@
+name,VOC_FOLD1
+data_folds_path,data_preparation/split-10-30-30-30
+voc_path,/home/wonjun/data/voc2012/VOCdevkit/VOC2012
+lesions,"('Atelectasis', 'Cardiomegaly', 'Consolidation', 'Edema', 'Enlarged Cardiomediastinum', 'Fracture', 'Lung Lesion', 'Lung Opacity', 'No Finding', 'Pleural Effusion', 'Pleural Other', 'Pneumonia', 'Pneumothorax', 'Support Devices')"
+use_original,True
+fine_tune,False
+arch,vit_small
+patch_size,8
+out_dim,65536
+norm_last_layer,True
+momentum_teacher,0.9995
+use_bn_in_head,False
+warmup_teacher_temp,0.04
+teacher_temp,0.04
+warmup_teacher_temp_epochs,0
+use_fp16,True
+weight_decay,0.01
+weight_decay_end,0.01
+clip_grad,3.0
+batch_size_per_gpu,8
+epochs,1
+ssl_epoch,1
+freeze_last_layer,1
+lr,5e-05
+warmup_epochs,1
+min_lr,1e-06
+optimizer,adamw
+drop_path_rate,0.1
+global_crops_scale,"(0.75, 1.0)"
+local_crops_number,8
+local_crops_scale,"(0.2, 0.6)"
+data_path,/PATH/DATA/
+output_dir,outputs/test/fold1
+saveckp_freq,5
+seed,0
+num_workers,8
+dist_url,env://
+local_rank,0
+num_folds,2
+pretrained_dir,outputs/test/fold0/checkpoint.pth
+checkpoint_key,each
+lam,0.5
+correct,500
+alpha,True
+save_attn_map_freq,25
+attn_map_save_dir,training_attention_maps
+imgs_for_attn_map,"('/home/wonjun/data/voc12/VOCdevkit/VOC2012/JPEGImages/2007_000063.jpg', '/home/wonjun/data/voc12/VOCdevkit/VOC2012/JPEGImages/2007_000129.jpg', '/home/wonjun/data/voc12/VOCdevkit/VOC2012/JPEGImages/2007_000799.jpg', '/home/wonjun/data/voc12/VOCdevkit/VOC2012/JPEGImages/2007_000925.jpg', '/home/wonjun/data/voc12/VOCdevkit/VOC2012/JPEGImages/2007_001678.jpg')"
+option_dir,runs_arguments

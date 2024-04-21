@@ -1,0 +1,4 @@
+*.pth
+
+attention_maps_progression/*
+outputs/*
